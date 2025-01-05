@@ -1,2 +1,1 @@
-personal website!
-theme: Stellar by HTML5 UP (html5up.net | @ajlkn)
+Personal website: modified theme [Forty](https://html5up.net/forty) from HTML5 UP.

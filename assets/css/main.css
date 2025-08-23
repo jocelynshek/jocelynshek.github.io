@@ -1846,7 +1846,7 @@ header.major > :first-child {
     margin-bottom: 0;
     width: calc(100% + 0.5em);
     font-family: 'Roslindale'; /* Apply Roslindale font */
-	font-weight: bold
+	font-weight: bold;
 	font-style: normal;
 }
 
@@ -4025,7 +4025,6 @@ body.is-ie header.major > h1:after {
 	display: flex;
 	flex-direction: row;
 	gap: 2.5em;
-	top-margin: 2em;
 	align-items: flex-start;
 	box-sizing: border-box;
 }
@@ -4260,7 +4259,7 @@ body.is-ie header.major > h1:after {
 	font-family: 'Roslindale', serif;
 	font-size: 1.5em;
 	margin-bottom: 0.75em;
-	color: #white;
+	color: white;
   }
   
   .about-column ul {

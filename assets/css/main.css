@@ -1893,6 +1893,15 @@ body.is-ie header.major > h1:after {
 	padding: 0.5em 1.5em;
 	border-bottom: 1px solid rgba(255,255,255,0.1);
   }
+
+  @media (max-width: 768px) {
+	#section-nav ul {
+	  flex-direction: column;
+	  align-items: flex-start;
+	  gap: 1em;
+	}
+  }
+  
   
   #section-nav ul {
 	list-style: none;
@@ -1922,7 +1931,26 @@ body.is-ie header.major > h1:after {
 
   :root {
 	scroll-padding-top: 5em; /* match nav height */
-  }  
+  }
+  
+  @media (max-width: 768px) {
+  #section-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em; /* smaller gap */
+    padding: 0;
+    margin: 0;
+  }
+
+  #section-nav li {
+    margin: 0; /* remove any extra space */
+  }
+
+  #section-nav a {
+    padding: 0.25em 0; /* optional: a little vertical space */
+  }
+}
+
 
 /* Form */
 
@@ -3597,7 +3625,7 @@ body.is-ie header.major > h1:after {
 		@media screen and (max-width: 480px) {
 
 			#banner {
-				padding: 6em 0 2em 0 ;
+				padding: 2em 0 2em 0 ;
 			}
 
 				#banner > .inner .content p br {
@@ -4017,11 +4045,11 @@ body.is-ie header.major > h1:after {
 	padding: 0 0.5em;
 }
 
-/* Improved banner layout with even padding */
+
 #banner > .inner.two-column {
 	max-width: 1100px;
 	margin: 0 auto;
-	padding: 10em 2em 2em 2em; /* top, right, bottom, left */
+	padding: 10em 2em 2em 2em;
 	display: flex;
 	flex-direction: row;
 	gap: 2.5em;
@@ -4029,7 +4057,7 @@ body.is-ie header.major > h1:after {
 	box-sizing: border-box;
 }
 
-/* Left and right column proportions */
+
 .left-column {
 	flex: 2;
 }

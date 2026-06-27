@@ -1,0 +1,191 @@
+/* =====================================================
+   THEATER EASTER EGG PAGE
+   ===================================================== */
+
+   .theater-page {
+    background-color: #0e0e14;
+    color: #f0eeea;
+    min-height: 100vh;
+  }
+  
+  .theater-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4em 5vw 5em 5vw;
+  }
+  
+  /* Back link */
+  .back-link {
+    display: inline-block;
+    font-family: 'Gabarito', sans-serif;
+    font-size: 0.85em;
+    color: rgba(240,238,234,0.5);
+    text-decoration: none;
+    border-bottom: none;
+    letter-spacing: 0.04em;
+    margin-bottom: 3em;
+    transition: color 0.2s ease;
+  }
+  
+  .back-link:hover {
+    color: #f0eeea !important;
+    border-bottom-color: transparent;
+  }
+  
+  /* Header */
+.theater-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3em;
+    margin-bottom: 3em;
+  }
+  
+  .theater-header-text {
+    flex: 1.2;
+  }
+  
+  .theater-header-img {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .theater-header-img img {
+    width: 100%;
+    height: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    filter: brightness(0.85) saturate(0.8);
+  }
+  
+  .theater-eyebrow {
+    font-family: 'Gabarito', sans-serif;
+    font-size: 0.75em;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(240,238,234,0.4);
+    margin-bottom: 0.5em;
+  }
+  
+  .theater-header h1 {
+    font-family: 'Roslindale', serif;
+    font-size: 3em;
+    font-weight: bold;
+    color: #f0eeea;
+    margin: 0 0 0.5em 0;
+    line-height: 1.1;
+  }
+  
+  .theater-sub {
+    font-family: 'Gabarito', sans-serif;
+    font-size: 1em;
+    color: rgba(240,238,234,0.65);
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .theater-header {
+      flex-direction: column;
+    }
+  
+    .theater-header-img {
+      width: 100%;
+    }
+  
+    .theater-header h1 {
+      font-size: 2.2em;
+    }
+  }
+  
+  /* Grid */
+  .theater-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2em;
+    margin-bottom: 3em;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .theater-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .theater-header h1 {
+      font-size: 2.2em;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .theater-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Tiles *//* Tiles */
+.theater-item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 6px;
+    aspect-ratio: 3 / 2;
+    text-decoration: none;
+    border-bottom: none;
+    outline: 2px solid transparent;               /* NEW: placeholder for hover border */
+    transition: outline-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .theater-item:hover {
+    outline-color: rgba(240,238,234,0.4);         /* NEW: soft light border on hover */
+    box-shadow: 0 0 18px rgba(240,238,234,0.1);   /* NEW: very subtle glow */
+  }
+  
+  .theater-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+    filter: brightness(0.7) saturate(0.85);       /* consistent, not changed on hover */
+  }
+  
+  .theater-item:hover img {
+    transform: scale(1.03);                       /* gentle zoom only, no darkening */
+  }
+  
+  .theater-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.2em;
+    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 65%);
+  }
+  
+  .theater-overlay h3 {
+    font-family: 'Roslindale', serif;
+    font-size: 1em;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0 0 0.2em 0;
+    line-height: 1.2;
+  }
+  
+  .theater-role {
+    font-family: 'Gabarito', sans-serif;
+    font-size: 0.75em;
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    margin: 0 0 0.1em 0;
+  }
+  
+  .theater-venue {
+    font-family: 'Gabarito', sans-serif;
+    font-size: 0.7em;
+    color: rgba(255,255,255,0.55);
+    margin: 0;                                    /* always visible now */
+  }

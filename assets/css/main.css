@@ -2042,29 +2042,62 @@ body.is-menu-visible #menu { pointer-events: auto; opacity: 1; visibility: visib
 }
 
 .left-column { flex: 2; }
-
 .right-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.right-column .personal-photo {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  border: 3px solid var(--clr-text);
-  box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
-  margin-bottom: 1em;
-  position: relative;
-  top: auto;
-  right: auto;
-}
-
-.right-column .icons      { padding: 0; margin-top: 1em; }
-.right-column .icons li   { display: inline-block; padding: 0 0.5em; }
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+  }
+  
+  .right-col-photo {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	border: 3px solid var(--clr-text-inv);
+	box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+	margin-bottom: 1em;
+	display: block;
+  }
+  
+  .right-column .icons {
+	padding: 0;
+	margin: 0.5em 0 0.9em;  /* smaller gaps above and below icons */
+  }
+  
+  .right-column .icons li {
+	display: inline-block;
+	padding: 0 0.5em;
+  }
+  
+  .right-column .resume-btn {
+	display: block;
+	width: 200px;
+	padding: 0.65em 0;
+	margin: 0;
+  
+	background-color: var(--clr-nav);    /* dark blue */
+	color: #fff;
+	border: 2px solid var(--clr-nav);
+	border-radius: 6px;
+  
+	font-family: 'Gabarito', sans-serif;
+	font-weight: 600;
+	font-size: 0.8em;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	text-decoration: none;
+  
+	transition: background-color 0.2s ease,
+				border-color 0.2s ease,
+				color 0.2s ease;
+  }
+  
+  .right-column .resume-btn:hover {
+	background-color: var(--clr-hero-h1);
+	border-color: var(--clr-hero-h1);
+	color: #fff !important;
+  }
 
 #banner > .inner.two-column {
   max-width: 1100px;
@@ -2098,15 +2131,15 @@ body.is-menu-visible #menu { pointer-events: auto; opacity: 1; visibility: visib
 .minor-header {
   padding: 0 5vw;
   font-family: 'Roslindale', serif;
-  font-size: 1.8em;
+  font-size: 2em;
   font-weight: bold;
   color: var(--section-txt);
-  margin: 0.7em 0 0.5em 0;
+  margin: 0.7em 0 0.4em 0;
   text-align: center;
 }
 
 .minor-header + .writing-grid    { margin-top: -0.25em; }
-.minor-header + .minor-subheader { margin-top: -0.5em; }
+.minor-header + .minor-subheader { margin-top: +0.6em; }
 
 .minor-subheader {
   padding: 0 5vw;
@@ -2118,6 +2151,10 @@ body.is-menu-visible #menu { pointer-events: auto; opacity: 1; visibility: visib
   line-height: 130%;
   text-align: center;
 }
+
+.minor-subheader a {
+	border-bottom: dotted 1px;
+  }
 
 /* =====================================================
    WRITING GRID
@@ -2261,7 +2298,7 @@ body.is-menu-visible #menu { pointer-events: auto; opacity: 1; visibility: visib
    SKILLS / EDUCATION (about-section)
    ===================================================== */
 #about-section {
-  padding: 3em 5em;
+  padding: 2em 5em;
   background-color: transparent;
   color: var(--clr-text);
 }
@@ -2284,6 +2321,7 @@ body.is-menu-visible #menu { pointer-events: auto; opacity: 1; visibility: visib
   font-family: 'Roslindale', serif;
   font-size: 1.5em;
   margin-bottom: 0.75em;
+  text-align: center;
   color: var(--clr-text);
 }
 

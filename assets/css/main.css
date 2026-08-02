@@ -686,7 +686,7 @@ body.is-ie header.major > h1:after           { max-width: 100% !important; }
   font-size: 1.1em;
   text-decoration: none;
   border-bottom: none;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.025em;
   white-space: nowrap;
 }
 
@@ -709,7 +709,7 @@ body.is-ie header.major > h1:after           { max-width: 100% !important; }
   text-decoration: none;
   font-family: 'Gabarito', sans-serif;
   font-weight: 500;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.025em;
   transition: color 0.2s ease;
 }
 
@@ -1693,7 +1693,7 @@ button,
       #banner > .inner .content p {
         font-size: 1.2em;
         font-weight: 600;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.025em;
         line-height: 150%;
         color: var(--clr-text);
       }

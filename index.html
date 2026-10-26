@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Jocelyn Shek's Page</title>
+    <title>Jocelyn Shek's Page (sample)</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -11,20 +11,261 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+      <style>
+      /* ---------- Tabs ---------- */
+      #banner.major > .inner.two-column { padding-bottom: 0.25em; }
+      #banner.major .left-column .content { margin-bottom: 0; }
+      #banner .content p:last-child { margin-bottom: 0; }
+      .tab-bar {
+        display: flex;
+        justify-content: center;
+        gap: 0;
+        margin: 0.5em 5vw 0;
+        border-bottom: 2px solid var(--clr-text);
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+      }
+      .tab {
+        flex: 1 1 0;
+        max-width: 14em;
+        background: none;
+        border: 0;
+        border-bottom: 3px solid transparent;
+        margin-bottom: -2px;
+        box-shadow: none;
+        padding: 0.9em 1em;
+        height: auto;
+        line-height: 1.2;
+        font-family: 'Roslindale', serif;
+        font-size: 1.3em;
+        font-weight: bold;
+        letter-spacing: 0;
+        text-transform: none;
+        color: rgba(17,17,17,0.55);
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .tab:hover { color: var(--clr-text); background: none; box-shadow: none; }
+      .tab-bar .tab[aria-selected="true"],
+      .tab-bar .tab[aria-selected="true"]:hover,
+      .tab-bar .tab[aria-selected="true"]:focus {
+        color: var(--clr-hero-h1);
+        border-bottom-color: var(--clr-hero-h1);
+      }
+      .tab-panel { padding-top: 1.5em; }
+      .tab-panel[hidden] { display: none; }
+      .tab-panel .minor-subheader { margin-top: 0.4em; }
+      .tab-panel #graphics { margin-top: 1em; }
+
+      /* ---------- Featured case studies ---------- */
+      mark.fill { background: #fff3a8; color: inherit; padding: 0 0.15em; }
+
+      .feature {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+        gap: 2.5em;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2.5em 5vw;
+        border-bottom: 1px solid var(--clr-border);
+      }
+      .feature:last-of-type { border-bottom: 0; }
+      .feature:nth-of-type(even) > :first-child { order: 2; }
+
+      .feature-media {
+        display: block;
+        border: 0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 6px 24px rgba(27,38,79,0.15);
+        transition: transform 0.2s ease;
+      }
+      .feature-media:hover { transform: translateY(-3px); }
+      .feature-media img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+
+      /* ---------- Award badge (Pudding Cup) ---------- */
+      .feature-media-wrap { position: relative; }
+      .award {
+        position: absolute;
+        top: -38px;
+        left: -38px;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        gap: 0.4em;
+        outline: none;
+      }
+      .award-cup {
+        width: 70px;
+        height: 70px;
+        transform: scaleX(-1) rotate(14deg);
+        filter: drop-shadow(0 4px 6px rgba(0,0,0,0.25));
+        transition: transform 0.25s ease, filter 0.25s ease;
+      }
+      .award-label {
+        padding: 0.45em 0.7em;
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: 0 4px 14px rgba(27,38,79,0.18);
+        font-family: 'Gabarito', sans-serif;
+        font-size: 0.85em;
+        font-weight: 600;
+        line-height: 1.3;
+        color: var(--clr-text);
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateY(4px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        pointer-events: none;
+      }
+      .feature-media-wrap:hover .award-cup,
+      .award:focus .award-cup { transform: scaleX(-1) rotate(4deg) translateY(-8px) scale(1.06); filter: drop-shadow(0 10px 10px rgba(0,0,0,0.25)); }
+      .feature-media-wrap:hover .award-label,
+      .award:focus .award-label { opacity: 1; transform: translateY(0); }
+      @media (prefers-reduced-motion: reduce) {
+        .award-cup, .award-label { transition: none; }
+      }
+      @media screen and (max-width: 768px) {
+        .award { top: -22px; left: -10px; }
+        .award-cup { width: 64px; height: 64px; }
+        .award-label { font-size: 0.75em; }
+      }
+
+      .feature-kicker {
+        margin: 0 0 0.4em;
+        font-family: 'Gabarito', sans-serif;
+        font-size: 0.8em;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--clr-hero-h1);
+      }
+      .feature h3 {
+        margin: 0 0 0.3em;
+        font-family: 'Roslindale', serif;
+        font-size: 1.45em;
+        line-height: 1.2;
+      }
+      .feature h3 a { color: var(--clr-text); border: 0; }
+      .feature h3 a:hover { color: var(--clr-hero-h1) !important; }
+      .feature-meta { margin: 0 0 1em; font-style: italic; font-size: 0.95em; color: rgba(17,17,17,0.65); }
+      .feature-did { margin: 0 0 1em; padding-left: 1.1em; }
+      .feature-did li { margin-bottom: 0.45em; line-height: 1.45; }
+      .feature-tools {
+        margin: 0;
+        font-family: 'Gabarito', sans-serif;
+        font-size: 0.85em;
+        color: rgba(17,17,17,0.6);
+      }
+      .feature-tools::before { content: "Tools: "; font-weight: 600; }
+
+      /* ---------- Reporting clip list ---------- */
+      .clip-list { max-width: 1200px; margin: 0 auto; padding: 0.5em 4vw 2em; }
+
+      /* ---------- About Me: narrower measure ---------- */
+      .tab-panel[data-panel="about-me"] { max-width: 1000px; margin: 0 auto; padding: 1.5em 5vw 0; box-sizing: content-box; }
+      .tab-panel[data-panel="about-me"] .minor-subheader { padding: 0; text-align: left; }
+      .tab-panel[data-panel="about-me"] .about-columns { flex-wrap: nowrap; }
+      .tab-panel[data-panel="about-me"] .about-column,
+      .tab-panel[data-panel="about-me"] .about-column h3 { text-align: left; }
+      @media screen and (max-width: 768px) { .tab-panel[data-panel="about-me"] { padding: 1em 16px 0; } }
+      .tab-panel[data-panel="about-me"] #about-section { padding: 2em 0; }
+      .clip-outlet {
+        margin: 1.8em 0 0.3em;
+        padding-bottom: 0.4em;
+        border-bottom: 2px solid var(--clr-text);
+        font-family: 'Gabarito', sans-serif;
+        font-size: 0.85em;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--clr-hero-h1);
+      }
+      .clip-list ul { list-style: none; margin: 0; padding: 0; }
+      .clip {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 1.5em;
+        padding: 0.9em 0;
+        border-bottom: 1px solid var(--clr-border);
+      }
+      .clip > a {
+        font-family: 'Roslindale', serif;
+        font-size: 1.15em;
+        font-weight: bold;
+        line-height: 1.25;
+        color: var(--clr-text);
+        border: 0;
+      }
+      .clip > a:hover { color: var(--clr-hero-h1) !important; }
+      .clip > a::after { content: " ↗"; font-size: 0.75em; color: rgba(17,17,17,0.4); }
+      .clip-tag {
+        align-self: start;
+        margin-top: 0.2em;
+        padding: 0.15em 0.6em;
+        border-radius: 999px;
+        background: rgba(53,94,192,0.1);
+        color: var(--clr-hero-h1);
+        font-family: 'Gabarito', sans-serif;
+        font-size: 0.75em;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .clip-dek {
+        grid-column: 1 / -1;
+        margin: 0.35em 0 0;
+        font-size: 0.92em;
+        line-height: 1.45;
+        color: rgba(17,17,17,0.72);
+      }
+
+      @media screen and (max-width: 768px) {
+        .clip { grid-template-columns: 1fr; }
+        .clip-tag { justify-self: start; margin: 0.4em 0 0; order: 2; }
+        .clip-dek { order: 3; }
+        .tab-bar { justify-content: flex-start; margin: 1.5em 0 0; padding: 0 16px; }
+        .tab { flex: 0 0 auto; padding: 0.8em 0.9em; font-size: 0.95em; }
+        .feature { grid-template-columns: 1fr; gap: 1.25em; padding: 2em 16px; }
+        .feature:nth-of-type(even) > :first-child { order: 0; }
+      }
+    </style>
+    <style>
+      /* ---------- Compact sizing ---------- */
+      #banner.major { min-height: 15vh; padding-top: 0.6em; }
+      #banner h1.roslindale-font { font-size: 3.05em; }
+      header.major > :first-child:after { margin: 0.26em 0 0.45em 0; }
+      #banner > .inner .content p { font-size: 1.12em; line-height: 148%; }
+      .inner.two-column { gap: 1.75em; }
+      .right-col-photo { width: 175px; height: 175px; margin-bottom: 0.75em; }
+      .right-column .icons { margin: 0.4em 0 0.75em; }
+      .right-column .resume-btn { width: 175px; }
+
+      .tab-bar { margin-top: 0.4em; }
+      .tab { font-size: 1.22em; padding: 0.75em 1em; }
+      .tab-panel { padding-top: 1em; }
+
+      .feature {
+        max-width: 1050px;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 2.1em;
+        padding: 1.9em 5vw;
+      }
+      .feature h3 { font-size: 1.35em; margin-bottom: 0.25em; }
+      .feature-kicker { font-size: 0.76em; margin-bottom: 0.35em; }
+      .feature-meta { font-size: 0.92em; margin-bottom: 0.8em; }
+      .feature-did { font-size: 0.96em; margin-bottom: 0.8em; }
+      .feature-did li { margin-bottom: 0.38em; line-height: 1.42; }
+      .feature-tools { font-size: 0.82em; }
+
+      @media screen and (max-width: 768px) {
+        #banner h1.roslindale-font { font-size: 2em; }
+        .feature { grid-template-columns: 1fr; gap: 1em; padding: 1.5em 16px; }
+      }
+    </style>
   </head>
   <body class="is-preload">
-
-    <nav id="section-nav">
-      <div class="nav-logo">
-        <a href="#">Jocelyn Shek</a>
-      </div>
-      <ul>
-        <li><a href="#data-stories">Data Stories</a></li>
-        <li><a href="#graphics">Graphics</a></li>
-        <li><a href="#reporting">Reporting</a></li>
-        <li><a href="#about-me">About Me</a></li>
-      </ul>
-    </nav>
 
     <div id="wrapper">
 
@@ -75,21 +316,209 @@
         </div>
       </section>
 
+
       <!-- Main -->
       <div id="main">
 
+        <!-- Tabs -->
+        <nav class="tab-bar" role="tablist" aria-label="Portfolio sections">
+          <button role="tab" class="tab" data-tab="featured" aria-selected="true">Featured</button>
+          <button role="tab" class="tab" data-tab="reporting" aria-selected="false">Reporting & Analysis</button>
+          <button role="tab" class="tab" data-tab="graphics" aria-selected="false">Graphics & Development</button>
+          <button role="tab" class="tab" data-tab="about-me" aria-selected="false">About Me</button>
+        </nav>
+
+        <!-- Featured -->
+        <div class="tab-panel" id="panel-featured" data-panel="featured">
+
+          <article class="feature">
+            <a class="feature-media" href="https://www.startribune.com/minnesotas-disappearing-delivery-wards-leave-pregnant-patients-far-from-care/601871005?utm_source=gift" target="_blank">
+              <img src="images/obstetrics.gif" alt="Animated map of a drive to the Essentia Health-Fosston obstetrics unit">
+            </a>
+            <div class="feature-body">
+              <p class="feature-kicker">Data analysis · Mapping · Scrollytelling</p>
+              <h3><a href="https://www.startribune.com/minnesotas-disappearing-delivery-wards-leave-pregnant-patients-far-from-care/601871005?utm_source=gift" target="_blank">Minnesota's disappearing delivery wards leave pregnant patients far from care</a></h3>
+              <p class="feature-meta">The Minnesota Star Tribune</p>
+              <ul class="feature-did">
+                
+                <li>Conducted geospatial drive-time analysis of Minnesota's obstetrics closures using QGIS scripts and Census data, which guided reporting and interviewing</li>
+                <li>Designed and built responsive, animated hero map that follows one mother's drive as the reader scrolls</li>
+              </ul>
+              <p class="feature-tools">QGIS · Svelte</p>
+            </div>
+          </article>
+
+          <article class="feature">
+            <a class="feature-media" href="https://www.nbcnews.com/data-graphics/democratic-voter-registrations-decline-independents-surging-rcna213772" target="_blank">
+              <img src="images/indept.png" alt="Bar chart of party registration shares">
+            </a>
+            <div class="feature-body">
+              <p class="feature-kicker">Data analysis · Reporting</p>
+              <h3><a href="https://www.nbcnews.com/data-graphics/democratic-voter-registrations-decline-independents-surging-rcna213772" target="_blank">Independent and third-party voter registration growing, largely at the expense of Democrats</a></h3>
+              <p class="feature-meta">NBC News</p>
+              <ul class="feature-did">
+                <li>Cleaned and analyzed messy voter registration datasets in Python to uncover long-term growth in independent and third-party registration</li>
+                <li>Reported the political implications through interviews and exit-poll analysis; built graphics in D3 and Datawrapper</li>
+              </ul>
+              <p class="feature-tools">Python (pandas) · Datawrapper · D3</p>
+            </div>
+          </article>
+
+          <article class="feature">
+            <div class="feature-media-wrap">
+              <a class="feature-media" href="https://jocelynshek.github.io/disappearingact/" target="_blank">
+                <img src="images/the-disappearing-act.gif" alt="The Disappearing Act project thumbnail">
+              </a>
+              <div class="award" tabindex="0" aria-label="The Pudding Cup (2025), Honorable Mention">
+                <img class="award-cup" src="images/pudding-cup.png" alt="">
+                <span class="award-label">The Pudding Cup (2025)<br>Honorable Mention</span>
+              </div>
+            </div>
+            <div class="feature-body">
+              <p class="feature-kicker">Interactive development · Design</p>
+              <h3><a href="https://jocelynshek.github.io/disappearingact/" target="_blank">The Disappearing Act: The Human Cost of U.S. Immigration Enforcement</a></h3>
+              <ul class="feature-did">
+                <li>Co-created piece visualizing the impact of immigration enforcement, using D3 and custom graphics to build a narrative interactive scrollytelling piece</li>
+                <li>Led narrative organization, data analysis, and scrollytelling development</li>
+                <li>Used human-scale visuals to contextualize ICE detention and deportation records</li>
+              </ul>
+              <p class="feature-tools">D3 · JavaScript </p>
+            </div>
+          </article>
+
+          <article class="feature">
+            <a class="feature-media" href="https://www.startribune.com/primary-turnout-gives-older-minnesotans-more-influence-over-november-ballot/601855692?utm_source=gift" target="_blank">
+              <img src="images/youth-vote.png" alt="Population pyramids comparing primary and general election voters">
+            </a>
+            <div class="feature-body">
+              <p class="feature-kicker">Data analysis · Reporting</p>
+              <h3><a href="https://www.startribune.com/primary-turnout-gives-older-minnesotans-more-influence-over-november-ballot/601855692?utm_source=gift" target="_blank">Primary turnout gives older Minnesotans more influence over November ballot</a></h3>
+              <p class="feature-meta">The Minnesota Star Tribune</p>
+              <ul class="feature-did">
+                <li>Analyzed bulk voter data in Python to reveal disparities in Minnesota primary voting turnout by age group</li>
+                <li>Wrote the story and designed graphic using RAWGraphs, Illustrator, and ai2html</li>
+                <li>Interviewed politicians, students, scholars, and voter engagement activists</li>
+              </ul>
+              <p class="feature-tools">Python · Illustrator · ai2html</p>
+            </div>
+          </article>
+
+          <article class="feature">
+            <a class="feature-media" href="https://www.nbcnews.com/data-graphics/five-charts-show-many-people-president-trumps-travel-ban-will-affect-rcna211284" target="_blank">
+              <img src="images/travel-ban.png" alt="Map of countries affected by the travel ban">
+            </a>
+            <div class="feature-body">
+              <p class="feature-kicker">Data analysis · Charts · Breaking news</p>
+              <h3><a href="https://www.nbcnews.com/data-graphics/five-charts-show-many-people-president-trumps-travel-ban-will-affect-rcna211284" target="_blank">Five charts that show how many people President Trump’s travel ban will affect</a></h3>
+              <p class="feature-meta">NBC News</p>
+              <ul class="feature-did">
+                <li>Turned around breaking news graphics, including the global map featured across NBC’s digital reporting and social media coverage, within an hour and a data analysis of State data within one day of the ban's announcement</li>
+                <li>Conducted fast-turnaround research, sourced relevant datasets, and developed four of the five graphics for this article</li>
+              </ul>
+              <p class="feature-tools">Python · Datawrapper</p>
+            </div>
+          </article>
+
+          <article class="feature">
+            <a class="feature-media" href="https://www.nbcnews.com/data-graphics/men-do-housework-women-still-do-more-rcna216748" target="_blank">
+              <img src="images/mens-labor.png" alt="Stacked bar chart of men's daily household work">
+            </a>
+            <div class="feature-body">
+              <p class="feature-kicker">Data analysis · Reporting</p>
+              <h3><a href="https://www.nbcnews.com/data-graphics/men-do-housework-women-still-do-more-rcna216748" target="_blank">U.S. men are contributing to household work more than ever</a></h3>
+              <p class="feature-meta">NBC News</p>
+              <ul class="feature-did">
+                <li>Pitched story after identifying a trend in men’s growing household contributions in newly released American Time Use Survey data</li>
+                <li>Reported story and interviewed sociologists; conducted analysis in Python and built graphics in Datawrapper</li>
+              </ul>
+              <p class="feature-tools">Python · Datawrapper</p>
+            </div>
+          </article>
+        </div>
+          </article>
+        </div>
+
+
+        <div class="tab-panel" data-panel="reporting" hidden>
+        <section id="reporting">
+          <div class="clip-list">
+            <h3 class="clip-outlet">The Minnesota Star Tribune</h3>
+            <ul>
+              <li class="clip">
+                <a href="https://www.startribune.com/primary-turnout-gives-older-minnesotans-more-influence-over-november-ballot/601855692?utm_source=gift" target="_blank">Primary turnout gives older Minnesotans more influence over November ballot</a>
+                <span class="clip-tag">Data reporting</span>
+                <p class="clip-dek">Analyzed voter data to reveal disparities in Minnesota primary voting turnout</p>
+              </li>
+              <li class="clip">
+                <a href="https://varsity.startribune.com/minnesota-high-school-private-school-state-championship-winning-percentage/601875882?utm_source=gift" target="_blank">Do private schools win more championships? Recent history says yes.</a>
+                <span class="clip-tag">Data analysis</span>
+                <p class="clip-dek">Constructed historical database of high school sports results and analyzed trends in public and private school performance by sport</p>
+              </li>
+              <li class="clip">
+                <a href="https://www.startribune.com/minnesotas-disappearing-delivery-wards-leave-pregnant-patients-far-from-care/601871005?utm_source=gift" target="_blank">Minnesota's disappearing delivery wards leave pregnant patients far from care</a>
+                <span class="clip-tag">Data analysis</span>
+                <p class="clip-dek">Conducted geospatial analysis to map and measure impact of obstetrics closures</p>
+              </li>
+              
+                <li class="clip">
+                <a href="https://www.startribune.com/curious-minnesota-history-cuyuna-industrial-land/601871052?utm_source=gift" target="_blank">Who decides which Minnesota lands get a second life?</a>
+                <span class="clip-tag">Explainer</span>
+                
+              </li>
+            </ul>
+            <h3 class="clip-outlet">NBC News</h3>
+            <ul>
+              <li class="clip">
+                <a href="https://www.nbcnews.com/data-graphics/democratic-voter-registrations-decline-independents-surging-rcna213772" target="_blank">Independent and third-party voter registration growing, largely at the expense of Democrats</a>
+                <span class="clip-tag">Data reporting</span>
+              </li>
+              <li class="clip">
+                <a href="https://www.nbcnews.com/data-graphics/five-charts-show-many-people-president-trumps-travel-ban-will-affect-rcna211284" target="_blank">Five charts that show how many people President Trump’s travel ban will affect</a>
+                <span class="clip-tag">Data reporting</span>
+              </li>
+              <li class="clip">
+                <a href="https://www.nbcnews.com/health/health-news/vaccine-children-exemption-data-measles-methodology-rcna229853" target="_blank">The Vaccine Divide: Behind the data</a>
+                <span class="clip-tag">Methodology</span>
+                <p class="clip-dek">Played significant role in collecting data for NBC's long-term investigation of falling vaccination rates</p>
+              </li>
+            
+              <li class="clip">
+                <a href="https://www.nbcnews.com/data-graphics/men-do-housework-women-still-do-more-rcna216748" target="_blank">U.S. men are contributing to household work more than ever</a>
+                <span class="clip-tag">Data reporting</span>
+                <p class="clip-dek">Pitched and reported story about how men's share of housework has grown, while still lagging behind women's, using American Time Use Survey data</p>
+              </li>
+              <li class="clip">
+                <a href="https://www.nbcnews.com/data-graphics/dog-attacks-postal-workers-usps-data-rcna211528" target="_blank">Dog attacks on mail carriers reach 7-year high, Postal Service data shows</a>
+                <span class="clip-tag">Data reporting</span>
+                <p class="clip-dek">Analyzed U.S. Postal Service data on dog attacks on mail carriers. Led to spin-off coverage by NBC affiliate stations</p>
+              </li>
+              <li class="clip">
+                <a href="https://www.nbcnews.com/politics/politics-news/live-blog/new-york-city-mayor-election-live-updates-rcna214294#rcrd83553" target="_blank">Early voting surges in NYC primary</a>
+                <span class="clip-tag">Data reporting</span>
+                <p class="clip-dek">Contributed to NBC News live blog of NYC mayoral election coverage.</p>
+              </li>
+            </ul>
+            <h3 class="clip-outlet">The Harvard Crimson</h3>
+            <ul>
+
+              <li class="clip">
+                <a href="https://www.thecrimson.com/article/2026/5/1/aging-cambridge-housing-seniors-rising-costs-living-permits-abundance/" target="_blank">Growing Older and Wiser in Cambridge</a>
+                <span class="clip-tag">Investigative feature</span>
+                <p class="clip-dek">Narrative investigation about how rising costs, housing policy, and community groups shape life for older adults in Cambridge</p>
+              </li>
+              <li class="clip">
+                <a href="https://www.thecrimson.com/article/2025/10/4/common-good-constitutionalism/" target="_blank">The Theory, Born at Harvard, That Could Remake Right-Wing Jurisprudence</a>
+                <span class="clip-tag">Investigative feature</span>
+                <p class="clip-dek">Investigative piece about common-good constitutionalism, a conservative legal theory that started at Harvard Law</p>
+              </li>
+
+        </section>
+        </div>
+
+        <div class="tab-panel" data-panel="graphics" hidden>
         <!-- Data Stories -->
         <section id="data-stories">
-          <h2 class="minor-header">Data Stories</h2>
           <div class="writing-grid">
-
-            <a href="https://www.nbcnews.com/data-graphics/democratic-voter-registrations-decline-independents-surging-rcna213772" class="writing-item" target="_blank">
-              <img src="images/indept.png" alt="Map thumbnail">
-              <div class="writing-info">
-                <p class="article-title">Independent and third-party voter registration growing, largely at the expense of Democrats</p>
-                <p class="article-source"><em>NBC News</em></p>
-              </div>
-            </a>
 
             <a href="https://www.startribune.com/minnesotas-disappearing-delivery-wards-leave-pregnant-patients-far-from-care/601871005?utm_source=gift" class="writing-item" target="_blank">
               <img src="images/obstetrics.gif" alt="Map thumbnail">
@@ -99,16 +528,8 @@
               </div>
             </a>
 
-            <a href="https://www.startribune.com/primary-turnout-gives-older-minnesotans-more-influence-over-november-ballot/601855692?utm_source=gift" class="writing-item" target="_blank">
-              <img src="images/youth-vote.png" alt="Map thumbnail">
-              <div class="writing-info">
-                <p class="article-title">Primary turnout gives older Minnesotans more influence over November ballot</p>
-                <p class="article-source"><em>The Minnesota Star Tribune</em></p>
-              </div>
-            </a>
-
             <a href="https://jocelynshek.github.io/disappearingact/" class="writing-item" target="_blank">
-              <img src="images/the-disappearing-act.png" alt="Map thumbnail">
+              <img src="images/the-disappearing-act.gif" alt="Map thumbnail">
               <div class="writing-info">
                 <p class="article-title">The Disappearing Act: The Human Cost of U.S. Immigration Enforcement</p>
                 <p class="article-source"><em>The Pudding Cup 2025 - Honorable Mention</em></p>
@@ -119,14 +540,6 @@
               <img src="images/mens-labor.png" alt="Map thumbnail">
               <div class="writing-info">
                 <p class="article-title">U.S. men are contributing to household work more than ever</p>
-                <p class="article-source"><em>NBC News</em></p>
-              </div>
-            </a>
-
-            <a href="https://www.nbcnews.com/data-graphics/five-charts-show-many-people-president-trumps-travel-ban-will-affect-rcna211284" class="writing-item" target="_blank">
-              <img src="images/travel-ban.png" alt="Map thumbnail">
-              <div class="writing-info">
-                <p class="article-title">Five charts that show how many people President Trump’s travel ban will affect</p>
                 <p class="article-source"><em>NBC News</em></p>
               </div>
             </a>
@@ -143,7 +556,6 @@
 
         <!-- Graphics -->
         <section id="graphics">
-          <h2 class="minor-header">Graphics</h2>
           <div class="mini-tiles">
 
 
@@ -321,60 +733,11 @@
 
           </div>
         </section>
+        </div>
 
-        <section id="reporting">
-          <h2 class="minor-header">Reporting</h2>
-          <div class="writing-grid">
-
-            <a href="https://www.thecrimson.com/article/2025/10/4/common-good-constitutionalism/" class="writing-item" target="_blank">
-              <img src="images/vermeule.jpg" alt="Map thumbnail">
-              <div class="writing-info">
-                <p class="article-title">The Theory, Born at Harvard, That Could Remake Right-Wing Jurisprudence</p>
-                <p class="article-source"><em>The Harvard Crimson</em></p>
-              </div>
-            </a>
-
-            <a href="https://www.thecrimson.com/article/2026/5/1/aging-cambridge-housing-seniors-rising-costs-living-permits-abundance/" class="writing-item" target="_blank">
-              <img src="images/aging.png" alt="Map thumbnail">
-              <div class="writing-info">
-                <p class="article-title">Growing Older and Wiser in Cambridge</p>
-                <p class="article-source"><em>The Harvard Crimson</em></p>
-              </div>
-            </a>
-
-
-			<a href="https://www.nbcnews.com/health/health-news/vaccine-children-exemption-data-measles-methodology-rcna229853" class="writing-item" target="_blank">
-				<img src="images/vaccine-divide.png" alt="Map thumbnail">
-				<div class="writing-info">
-				  <p class="article-title">The Vaccine Divide: Behind the data</p>
-				  <p class="article-source"><em>Methodology for NBC News's Vaccine Divide investigation</em></p>
-				</div>
-			  </a>
-
-			  
-
-            <a href="https://www.hodp.org/blog/s26-snow/" class="writing-item" target="_blank">
-              <img src="images/hodpsnow.jpg" alt="Map thumbnail">
-              <div class="writing-info">
-                <p class="article-title">Spring FDOC: Boston's 4th Snowiest Day</p>
-                <p class="article-source"><em>Harvard Undergraduate Data Project</em></p>
-              </div>
-            </a>
-
-            <a href="https://www.startribune.com/curious-minnesota-history-cuyuna-industrial-land/601871052?utm_source=gift" class="writing-item" target="_blank">
-              <img src="images/secondlife.jpg" alt="Article thumbnail">
-              <div class="writing-info">
-                <p class="article-title">Who decides which Minnesota lands get a second life?</p>
-                <p class="article-source"><em>The Minnesota Star Tribune</em></p>
-              </div>
-            </a>
-
-          </div>
-        </section>
-
+        <div class="tab-panel" data-panel="about-me" hidden>
         <!-- About Me -->
         <section id="about-me">
-          <h2 class="minor-header">About Me</h2>
           <h2 class="minor-subheader">I'm a senior at Harvard University studying sociology and statistics. Basically, I'm passionate about understanding people and the systems that shape everyday life through data! A lifelong storyteller, I came to college planning to study theater (though am still <a href="theater.html">heavily involved!</a>), but fell in love with uncovering human experiences through a new medium: journalism. With a background in quantitative social science research, I care about making rigorous social analysis legible to wider audiences through rich reporting and engaging visuals.</h2>
 		  <section id="skills">
 			<section id="about-section">
@@ -405,6 +768,7 @@
 
           </div>
         </section>
+        </div>
 
       </div><!-- /#main -->
 
@@ -418,5 +782,23 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 
+    <script>
+      (function () {
+        var tabs = document.querySelectorAll('.tab');
+        var panels = document.querySelectorAll('.tab-panel');
+        var names = Array.prototype.map.call(tabs, function (t) { return t.dataset.tab; });
+        function show(name, scroll) {
+          if (names.indexOf(name) < 0) name = 'featured';
+          tabs.forEach(function (t) { t.setAttribute('aria-selected', t.dataset.tab === name); });
+          panels.forEach(function (p) { p.hidden = p.dataset.panel !== name; });
+          if (scroll) document.querySelector('.tab-bar').scrollIntoView({ behavior: 'smooth' });
+        }
+        tabs.forEach(function (t) {
+          t.addEventListener('click', function () { history.replaceState(null, '', '#' + t.dataset.tab); show(t.dataset.tab); });
+        });
+        window.addEventListener('hashchange', function () { show(location.hash.slice(1), true); });
+        show(location.hash.slice(1), false);
+      })();
+    </script>
   </body>
 </html>
